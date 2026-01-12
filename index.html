@@ -46,12 +46,12 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden; /* garante cantos arredondados de verdade */
+      overflow: hidden; /* cantos arredondados reais */
     }
 
     .header{
       background: linear-gradient(135deg, #0f2f4a 0%, #143e61 60%, #0f2f4a 100%);
-      padding: 22px 26px;
+      padding: 20px 24px;
       display:flex;
       gap:16px;
       align-items:center;
@@ -65,8 +65,9 @@
       min-width: 0;
     }
 
+    /* ✅ Ajuste solicitado */
     .logo{
-      height: 44px;
+      height: 38px;
       width: auto;
       display:block;
     }
@@ -186,9 +187,9 @@
     }
 
     @media (max-width: 420px){
-      .header{ padding: 18px 16px; }
+      .header{ padding: 16px 14px; }
       .content{ padding: 20px 16px; }
-      .logo{ height: 38px; }
+      .logo{ height: 32px; } /* proporcional no mobile */
       .title{ font-size: 16px; }
       .badge{ display:none; }
       p{ font-size: 15px; }
@@ -203,8 +204,8 @@
     <section class="card" role="region" aria-label="Atualização cadastral de correspondentes OAB/JF">
       <header class="header">
         <div class="brand-left">
-          <!-- ✅ IMPORTANTE (GitHub Pages): sem "/" no começo do caminho -->
-          <img class="logo" src="assets/logo-oab.png" alt="OAB Minas Gerais — Subseção Juiz de Fora" />
+          <!-- ✅ Logo branca (maior contraste no header escuro) -->
+          <img class="logo" src="assets/logo-oab-branca.png" alt="OAB Minas Gerais — Subseção Juiz de Fora" />
           <div class="titleblock">
             <div class="kicker">Comunicação oficial</div>
             <h1 class="title">OAB/JF - Guia de Correspondentes</h1>
