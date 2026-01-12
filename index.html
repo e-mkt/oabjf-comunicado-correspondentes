@@ -1,194 +1,247 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="x-apple-disable-message-reformatting" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Comunicado Oficial — Guia de Correspondentes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atualização Cadastral OAB/JF</title>
 
-  <!-- CSS mínimo (compatível com e-mail). Conteúdo principal em inline. -->
   <style>
-    /* Evita zoom estranho no iOS */
-    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
-    img { -ms-interpolation-mode: bicubic; display: block; border: 0; outline: none; text-decoration: none; }
-    a { text-decoration: none; }
+    :root{
+      --bg: #f3f5f7;
+      --card: #ffffff;
+      --border: #e6e8eb;
+      --text: #1d2329;
+      --muted: #5b6572;
+      --muted2:#7a8593;
+      --brand: #0f2f4a;
+      --cta: #b30000;
+      --ctaHover: #990000;
+      --noteBg:#f6f8fb;
+      --shadow: 0 18px 50px rgba(16, 24, 40, .12);
+      --radius: 22px;
+    }
 
-    /* Responsivo simples */
-    @media screen and (max-width: 640px) {
-      .container { width: 100% !important; }
-      .px { padding-left: 18px !important; padding-right: 18px !important; }
-      .header-col { display: block !important; width: 100% !important; }
-      .pill-wrap { text-align: left !important; padding-top: 14px !important; }
-      .logo { width: 170px !important; height: auto !important; }
-      .title { font-size: 20px !important; line-height: 26px !important; }
-      .btn { width: 100% !important; }
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(15,47,74,.10), transparent 55%),
+                  radial-gradient(900px 600px at 110% 20%, rgba(179,0,0,.08), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap{
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 16px;
+    }
+
+    .card{
+      width: min(720px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden; /* garante cantos arredondados de verdade */
+    }
+
+    .header{
+      background: linear-gradient(135deg, #0f2f4a 0%, #143e61 60%, #0f2f4a 100%);
+      padding: 22px 26px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: 0;
+    }
+
+    .logo{
+      height: 44px;
+      width: auto;
+      display:block;
+    }
+
+    .titleblock{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+      min-width: 0;
+    }
+
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .title{
+      font-size: 18px;
+      font-weight: 750;
+      color:#fff;
+      margin:0;
+      line-height:1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .badge{
+      font-size: 12px;
+      color: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 8px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .content{
+      padding: 26px;
+    }
+
+    .content-inner{
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    p{
+      margin: 0 0 12px 0;
+      font-size: 15.5px;
+    }
+
+    .salutation{
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .cta-area{
+      margin: 18px 0 16px 0;
+      display:flex;
+      justify-content:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background: var(--cta);
+      color:#fff;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 750;
+      font-size: 16px;
+      text-decoration:none;
+      box-shadow: 0 10px 24px rgba(179,0,0,.18);
+      border: 1px solid rgba(0,0,0,.05);
+      transition: transform .08s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{
+      background: var(--ctaHover);
+      box-shadow: 0 12px 28px rgba(179,0,0,.22);
+      transform: translateY(-1px);
+    }
+    .btn:active{
+      transform: translateY(0);
+    }
+
+    .note{
+      background: var(--noteBg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-top: 8px;
+      text-align:center;
+    }
+    .note p{
+      margin:0;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .footer{
+      padding: 18px 26px 22px 26px;
+      background: #fbfcfd;
+      border-top: 1px solid var(--border);
+      text-align:center;
+    }
+    .footer p{
+      margin:0;
+      font-size: 12.5px;
+      color: var(--muted2);
+    }
+
+    @media (max-width: 420px){
+      .header{ padding: 18px 16px; }
+      .content{ padding: 20px 16px; }
+      .logo{ height: 38px; }
+      .title{ font-size: 16px; }
+      .badge{ display:none; }
+      p{ font-size: 15px; }
+      .btn{ width: 100%; }
+      .cta-area{ margin: 16px 0 14px 0; }
     }
   </style>
 </head>
 
-<body style="margin:0; padding:0; background:#eef1f5; font-family: Arial, Helvetica, sans-serif;">
-  <!-- Preheader (texto invisível) -->
-  <div style="display:none; font-size:1px; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; mso-hide:all;">
-    Atualize seu cadastro de correspondentes e complemente a área de atuação.
-  </div>
+<body>
+  <main class="wrap">
+    <section class="card" role="region" aria-label="Atualização cadastral de correspondentes OAB/JF">
+      <header class="header">
+        <div class="brand-left">
+          <!-- ✅ IMPORTANTE (GitHub Pages): sem "/" no começo do caminho -->
+          <img class="logo" src="assets/logo-oab.png" alt="OAB Minas Gerais — Subseção Juiz de Fora" />
+          <div class="titleblock">
+            <div class="kicker">Comunicação oficial</div>
+            <h1 class="title">OAB/JF - Guia de Correspondentes</h1>
+          </div>
+        </div>
+        <div class="badge">Comunicado Oficial</div>
+      </header>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#eef1f5;">
-    <tr>
-      <td align="center" style="padding: 28px 14px;">
-        <!-- Card principal -->
-        <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0" style="width:680px; max-width:680px; background:#ffffff; border-radius:26px; overflow:hidden;">
-          <!-- HEADER -->
-          <tr>
-            <td class="px" style="padding: 22px 26px 18px 26px; background:#163a57;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <!-- Coluna esquerda: logo + título -->
-                  <td class="header-col" valign="middle" style="width:70%; padding-right:12px;">
-                    <!-- Troque o src pela URL pública (recomendado) ou por base64 se insistir -->
-                    <img
-                      class="logo"
-                      src="assets/logo-oab.png"
-                      width="190"
-                      alt="OAB Minas Gerais — Subseção Juiz de Fora"
-                      style="width:190px; height:auto; display:block; border:0; outline:none; text-decoration:none;"
-                    />
-                    <div style="height: 12px; line-height:12px;">&nbsp;</div>
+      <div class="content">
+        <div class="content-inner">
+          <p class="salutation">Prezado(a) [NOME COMPLETO],</p>
 
-                    <!-- Título abaixo da logo (com respiro) -->
-                    <div class="title" style="font-size:22px; line-height:28px; font-weight:800; color:#ffffff; letter-spacing:0.2px;">
-                      Guia de Correspondentes
-                    </div>
-                  </td>
+          <p>A OAB/JF está realizando uma atualização geral em nosso banco de dados de correspondentes.</p>
 
-                  <!-- Coluna direita: pílula -->
-                  <td class="header-col pill-wrap" valign="middle" align="right" style="width:30%; text-align:right;">
-                    <span
-                      style="
-                        display:inline-block;
-                        padding: 10px 16px;
-                        border-radius: 999px;
-                        font-size: 14px;
-                        line-height: 14px;
-                        font-weight: 700;
-                        color:#ffffff;
-                        background: rgba(255,255,255,0.14);
-                        border: 1px solid rgba(255,255,255,0.18);
-                        white-space: nowrap;
-                      "
-                    >Comunicado Oficial</span>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+          <p>
+            Identificamos que seu cadastro necessita de complemento, especialmente no campo
+            <strong>área de atuação</strong>. Esta informação é essencial para garantir que seu perfil seja indicado corretamente nas buscas.
+          </p>
 
-          <!-- BODY -->
-          <tr>
-            <td class="px" style="padding: 36px 30px 26px 30px; background:#ffffff;">
-              <!-- Saudação -->
-              <div style="font-size: 22px; line-height: 30px; color:#1b1f2a; font-weight: 400; margin:0;">
-                Prezado(a) <strong style="font-weight:800;">[NOME COMPLETO]</strong>,
-              </div>
+          <p>Por favor, acesse o link abaixo para regularizar suas informações:</p>
 
-              <div style="height: 18px; line-height:18px;">&nbsp;</div>
+          <div class="cta-area">
+            <a class="btn" href="https://www.juizdefora-oabmg.org.br/guia-correspondente" target="_blank" rel="noopener">
+              Atualizar Cadastro Agora
+            </a>
+          </div>
 
-              <!-- Texto -->
-              <div style="font-size: 18px; line-height: 30px; color:#1b1f2a;">
-                A OAB/JF está realizando uma atualização geral em nosso banco de dados de correspondentes.
-              </div>
+          <div class="note" role="note" aria-label="Aviso institucional">
+            <p>Esta é uma comunicação oficial para organização e melhoria dos serviços da subseção.</p>
+          </div>
+        </div>
+      </div>
 
-              <div style="height: 14px; line-height:14px;">&nbsp;</div>
-
-              <div style="font-size: 18px; line-height: 30px; color:#1b1f2a;">
-                Identificamos que seu cadastro necessita de complemento, especialmente no campo
-                <strong style="font-weight:800;">área de atuação</strong>. Esta informação é essencial para garantir que
-                seu perfil seja indicado corretamente nas buscas.
-              </div>
-
-              <div style="height: 18px; line-height:18px;">&nbsp;</div>
-
-              <div style="font-size: 18px; line-height: 30px; color:#1b1f2a;">
-                Por favor, acesse o link abaixo para regularizar suas informações:
-              </div>
-
-              <div style="height: 22px; line-height:22px;">&nbsp;</div>
-
-              <!-- Botão (sem sombra / mais institucional) -->
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-                <tr>
-                  <td align="center">
-                    <a
-                      href="SEU_LINK_AQUI"
-                      class="btn"
-                      style="
-                        display:inline-block;
-                        background:#9f1d1d;
-                        color:#ffffff;
-                        font-size:18px;
-                        line-height:18px;
-                        font-weight:800;
-                        padding:18px 34px;
-                        border-radius:999px;
-                        border: 1px solid rgba(0,0,0,0.10);
-                        box-shadow:none;
-                      "
-                    >
-                      Atualizar Cadastro Agora
-                    </a>
-                  </td>
-                </tr>
-              </table>
-
-              <div style="height: 22px; line-height:22px;">&nbsp;</div>
-
-              <!-- Linha divisória suave -->
-              <div style="height:1px; background:#e9edf3; width:100%;">&nbsp;</div>
-
-              <div style="height: 18px; line-height:18px;">&nbsp;</div>
-
-              <!-- Box informativo (fonte levemente menor) -->
-              <div
-                style="
-                  margin: 0 auto;
-                  padding: 18px 18px;
-                  background:#f2f4f7;
-                  border:1px solid #e6e9ef;
-                  border-radius:16px;
-                  text-align:center;
-                  font-size:14px;
-                  line-height:20px;
-                  color:#556070;
-                "
-              >
-                Esta é uma comunicação oficial para organização e melhoria dos serviços da subseção.
-              </div>
-
-              <div style="height: 18px; line-height:18px;">&nbsp;</div>
-            </td>
-          </tr>
-
-          <!-- FOOTER -->
-          <tr>
-            <td style="padding: 18px 22px; background:#ffffff;">
-              <div style="height:1px; background:#e9edf3; width:100%;">&nbsp;</div>
-              <div style="height: 14px; line-height:14px;">&nbsp;</div>
-              <div style="text-align:center; font-size:14px; line-height:20px; color:#7a8596; font-family: Arial, Helvetica, sans-serif;">
-                OAB/JF - Ordem dos Advogados do Brasil - Subseção Juiz de Fora
-              </div>
-              <div style="height: 6px; line-height:6px;">&nbsp;</div>
-              <div style="text-align:center; font-size:12px; line-height:18px; color:#9aa3b2;">
-                Se você recebeu este e-mail por engano, pode desconsiderar esta mensagem.
-              </div>
-            </td>
-          </tr>
-        </table>
-
-        <!-- Espaço externo -->
-        <div style="height: 18px; line-height:18px;">&nbsp;</div>
-      </td>
-    </tr>
-  </table>
+      <footer class="footer">
+        <p>OAB/JF - Ordem dos Advogados do Brasil - Subseção Juiz de Fora</p>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
